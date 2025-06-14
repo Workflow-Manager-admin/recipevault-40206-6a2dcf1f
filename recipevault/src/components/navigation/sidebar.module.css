@@ -1,0 +1,241 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebarCollapsed {
+  transform: translateX(-100%);
+}
+
+.header {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--text-light);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.navigation {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.navSection {
+  margin-bottom: 2rem;
+}
+
+.navSectionTitle {
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: var(--text-secondary);
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  background-color: var(--bg-secondary);
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.navLink.active {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--primary-color);
+  border-right: 3px solid var(--primary-color);
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.footer {
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.userProfile:hover {
+  background-color: var(--bg-primary);
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userEmail {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobileToggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow-medium);
+  transition: all 0.2s ease;
+}
+
+.mobileToggle:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.mobileOpen {
+    transform: translateX(0);
+  }
+  
+  .mobileToggle {
+    display: block;
+  }
+  
+  .overlay.show {
+    display: block;
+  }
+}
+
+/* Icons using CSS pseudo-elements */
+.navIcon.home::before {
+  content: "🏠";
+}
+
+.navIcon.browse::before {
+  content: "📖";
+}
+
+.navIcon.manage::before {
+  content: "⚙️";
+}
+
+.navIcon.auth::before {
+  content: "👤";
+}
+
+.navIcon.categories::before {
+  content: "📂";
+}
+
+.navIcon.favorites::before {
+  content: "❤️";
+}
